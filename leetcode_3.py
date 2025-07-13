@@ -4,20 +4,23 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        s_list=list(s)
-        value=0 
-        i=j=0
+        aSet= set()
+
+        i=0
+        j=0
+        result=0
 
         while i< len(s):
-            j=i+1
-            while j< len(s):
-                if s_list[j]== s_list[j-1]:
-                    break
+            if s[i] in aSet:
+                aSet.remove(s[j])
                 j+=1
-            value=max(value,j-i)     
-            i=j
-        return value
+            else:
+                aSet.add(s[i])
+                i+=1
+            result=max(len(aSet), result)
+        
+        return result
 
-
-s="abcabcbb"
-print(Solution().lengthOfLongestSubstring(s))
+# s = "abcabcbb"
+# print(Solution().lengthOfLongestSubstring(s))
+print(Solution().lengthOfLongestSubstring(eval(input())))

@@ -1,0 +1,1 @@
+{"name":"Local: leetcode_4_try","url":"c:\\Users\\Admin\\Desktop\\Leetcode\\leetcode_4_try.py","tests":[{"id":1752126752866,"input":"\"QWER\"","output":"0"},{"id":1752127343118,"input":"\"QQQW\"","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Admin\\Desktop\\Leetcode\\leetcode_4_try.py","group":"local","local":true}

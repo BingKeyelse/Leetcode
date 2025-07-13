@@ -17,7 +17,8 @@ class Solution(object):
                     right+= 1
 
                 longest = max(longest, right-left+1)
+                
         return longest
-    
-a= [2,1,4,7,3,2,5]
-print(Solution().longestMountain(a))
+
+# ✅ Thêm dòng gọi hàm với input CPH Judge cung cấp:
+print(Solution().longestMountain(eval(input())))
