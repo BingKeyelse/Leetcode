@@ -1,20 +1,26 @@
-class MainWindow(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
-        self.threadpool = QtCore.QThreadPool()
-        self.btnconnect_rasp.clicked.connect(lambda: self.start_worker_1())
+class Address(BaseModel):
+    street: str
+    city: str
+    state: str
+    zip_code: str
 
-    def start_worker_1(self):
-        worker = Worker(self.start_stream_data_rasp, )
-        self.threadpool.start(worker)
+class UserWithAddress(BaseModel):
+    username: str
+    email: str
+    full_name: Optional[str] = None
+    age: Optional[int] = None
+    address: Address
 
-class Worker(QtCore.QRunnable):
-    def __init__(self, function, *args, **kwargs):
-        super(Worker, self).__init__()
-        self.function = function
-        self.args = args
-        self.kwargs = kwargs
-	
-    @pyqtSlot()
-    def run(self):
-        self.function(*self.args, **self.kwargs)
+# Thử nghiệm với UserWithAddress Model
+create_user_with_address({
+    "username": "john_doe",
+    "email": "john@example.com",
+    "full_name": "John Doe",
+    "age": 30,
+    "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip_code": "12345"
+    }
+})
